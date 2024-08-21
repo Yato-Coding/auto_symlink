@@ -1,10 +1,13 @@
 import os
+import time
 
-src_dir_single_file = './src/movies'
-src_dir_multi_file = './src/shows'
+interval = 10
 
-dst_dir_single_file = './dst/movies'
-dst_dir_multi_file = './dst/shows'
+src_dir_single_file = './src/single_file'
+src_dir_multi_file = './src/multi_file'
+
+dst_dir_single_file = './dst/single_file'
+dst_dir_multi_file = './dst/multi_file'
 
 single_file_modification_index = {}
 multi_file_modification_index = {}
@@ -98,6 +101,7 @@ def main():
         for file_path in find_new_files(src_dir_multi_file, multi_file_modification_index):
             print("File: " + file_path)
             symlink_multi_file(file_path, dst_dir_multi_file)
+        time.sleep(interval)
 
 if __name__ == "__main__":
     main()
